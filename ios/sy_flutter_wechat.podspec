@@ -16,8 +16,13 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
 
-  s.dependency 'WechatOpenSDK'
-
-  s.ios.deployment_target = '8.0'
+  s.static_framework = true
+  
+  s.frameworks = ["SystemConfiguration", "CoreTelephony"]
+  s.libraries = ["z", "sqlite3.0", "c++"]
+  s.preserve_paths = 'Lib/*.a'
+  s.vendored_libraries = "**/*.a"
+      # s.ios.deployment_target = '8.0'
+      #s.ios.deployment_target = '8.0'
 end
 
